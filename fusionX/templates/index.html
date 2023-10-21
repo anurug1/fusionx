@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}ยินดีต้อนรับสู่เว็บไซต์ Fusion X ของพวกเรา{% endblock title %}
+{% block content %}
+<!-- Hero Section Begin -->
+
+<section class="hero">
+    <div class="hero__slider owl-carousel">
+        <div class="hero__items set-bg" data-setbg="{% static "img/hero/hero-2.png" %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h6>Winter Collection</h6>
+                            <h2>Winter Collection End of October coming soon</h2>
+                            <p>ต้อนรับฤดูหนาวกับสนีคเกอร์ททีเข้าถึงไลฟ์สไตล์กับการออกกำลังกายกับสนีคเกอร์เล่านี้กัน!!!</p>
+                            <a href="{%url "shop"%}" class="primary-btn">ช้อปปิ้งเลยยยยย <span class="arrow_right"></span></a>
+                            {% comment %} <div class="hero__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__items set-bg" data-setbg="{% static "img/hero/hero-1.png" %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 col-lg-7 col-md-8">
+                        <div class="hero__text">
+                            <h6>Winter Collection</h6>
+                            <h2>ต้อนรับสินค้าเดือนพฤศจิกายนนี้ พบกับรองเท้าผ้าใบคู่ใหม่ เร็วๆ นี้!</h2>
+                            <p>สนีคเกอร์คู่ใหม่ที่หรูหราและมีไลฟ์สไตล์เหล่านี้กัน!.</p>
+                            <a href="{%url "shop"%}" class="primary-btn">ช้อปปิ้งเลยยยยย <span class="arrow_right"></span></a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Banner Section Begin -->
+<section class="banner spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 offset-lg-4">
+                <div class="banner__item">
+                    <div class="banner__item__pic">
+                        <img src="{% static "img/product/A4.3.jpg" %}" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Adidas Collections 2024</h2>
+                        <a href="{%url "shop"%}">ช้อปปิ้งเลยยยยย</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="banner__item banner__item--middle">
+                    <div class="banner__item__pic">
+                        <img src="{% static "img/product/G2.2.jpg" %}" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>Special Gucci Collections 2024</h2>
+                        <a href="{%url "shop"%}">ช้อปปิ้งเลยยยยย</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="banner__item banner__item--last">
+                    <div class="banner__item__pic">
+                        <img src="{% static "img/product/N4.2.jpg" %}" alt="">
+                    </div>
+                    <div class="banner__item__text">
+                        <h2>New Balance New Collections!!!!!!</h2>
+                        <a href="{%url "shop"%}">ช้อปปิ้งเลยยยยย</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Section End -->
+
+
+
+
+
+{% endblock content %}

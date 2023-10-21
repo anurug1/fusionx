@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+{% block title %}ชำระเงิน {% endblock title %}
+{% load static %}
+{% block content %}z
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>ชำระเงิน</h4>
+                    <div class="breadcrumb__links">
+                        <a href="{%url 'home'%}">หน้าแรก</a>
+                        <a href="{%url 'shop'%}">ช้อปปิ้ง</a>
+                        <span>ชำระเงิน</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+                <div class="row">
+                    
+                    
+                    <div class="col-7">
+                        <div class="box-element" id="form-wrapper">
+                            <form id="form">
+                                {%csrf_token%}
+                                <div id="user-info">
+                                <hr>
+                                <p>ข้อมูลสมาชิก: </p>
+                                <hr>
+                                    <div class="checkout__input">
+                                        <p>ชื่อจริง<span> *</span></p>
+                                        <input required type="text" name="name">
+                                    </div>
+                                    <div class="checkout__input">
+                                        <p>อีเมลล์<span> *</span></p>
+                                        <input required type="email" name="email">
+                                    </div>
+                                </div>
+                                
+                                <div id="shipping-info">
+                                    <hr>
+                                    <p>ข้อมูลการจัดส่ง: </p>
+                                    <hr>
+                                    <div class="checkout__input">
+                                        <p>ที่อยู่บ้านเลขที่<span> *</span></p>
+                                        <input required type="text" name="address">
+                                    </div>
+                                    <div class="checkout__input">
+                                        <p>จังหวัด<span> *</span></p>
+                                        <input required type="text" name="country">
+                                    </div>
+                                    <div class="checkout__input">
+                                        <p>อำเภอ<span> *</span></p>
+                                        <input required type="text" name="city">
+                                    </div>
+                                    <div class="checkout__input">
+                                        <p>ตำบล<span> *</span></p>
+                                        <input required type="text" name="state">
+                                    </div>
+                                    <div class="checkout__input">
+                                        <p>รหัสไปรษณีย์<span> *</span></p>
+                                        <input required type="text" name="zipcode">
+                                    </div>
+                                    <div class="checkout__input">
+                                        <p>เบอร์มือถือ<span> *</span></p>
+                                        <input required type="tel" name="phone">
+                                    </div>
+                                </div>
+            
+                                <hr>
+                                <input id="form-button" class="site-btn btn-block btn-primary" type="submit" value="Continue">
+                                
+                            </form>
+                        </div>
+            
+                        <br>
+
+                        <div class="box-element hidden" id="payment-info">
+                            Payment :
+                            <a href="#" id="make-payment">  <img src="{% static "img/payment.png" %}" alt=""></a>
+                        </div>
+                        
+                    </div>
+                    <div class="col-5">
+                        <div class="col-lg-12">
+                        
+                            <div class="checkout__order">
+                                <h4 class="order__title">ออเดอร์ของคุณ</h4>
+                                <div class="checkout__order__products">สินค้า <span>รวมราคา/จำนวน</span></div>
+                                
+                                <ul class="checkout__total__products">
+                                    {%for item in items%}
+                                    <li>{{item.product.name}} <span>{{item.product.price|floatformat:"2g"}} ฿ X {{item.quantity}} ชิ้น</span></li>
+                                    {%endfor%}
+                                </ul>
+                                <ul class="checkout__total__all">
+                                    <li>รวมทั้งสิ้น <span>{{order.get_cart_total|floatformat:"2g"}} ฿</span></li>
+                                </ul>
+                            </div>
+                            <a  class="btn btn-outline-secondary" href="{% url 'shop' %}">&#x2190; ช้อปปิ้งต่อ...</a>
+                        </div>
+                    </div> 
+                </div>
+                </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    var shipping = '{{order.shipping}}'
+    var total = '{{order.get_cart_total}}'
+    if(shipping == 'False'){
+        document.getElementById('shipping-info').innerHTML = ''
+    } 
+
+    if (user != 'AnonymousUser'){
+        document.getElementById('user-info').innerHTML = ''
+    }
+
+   if (shipping == 'False' && user != 'AnonymousUser'){
+       //Hide entire form if user is logged in and shipping is false
+           document.getElementById('form-wrapper').classList.add("hidden");
+           //Show payment if logged in user wants to buy an item that does not require shipping
+    
+           document.getElementById('payment-info').classList.remove("hidden");
+   }
+    
+    var form = document.getElementById('form')
+
+    csrf_token = form.getElementsByTagName("input")[0].value
+    console.log('New Token:',form.getElementsByTagName("input")[0].value)
+
+		form.addEventListener('submit', function(e){
+	    	e.preventDefault()
+	    	console.log('Form Submitted...')
+	    	document.getElementById('form-button').classList.add("hidden");
+	    	document.getElementById('payment-info').classList.remove("hidden");
+	    })
+    
+        document.getElementById('make-payment').addEventListener('click', function(e){
+	    	submitFormData()
+	    })
+        function submitFormData(){
+	    	console.log('Payment button clicked')
+
+            var userFormData = {
+                'name':null,
+                'email':null,
+                'total':total,
+            }
+
+            var shippingInfo = {
+                'address':null,
+                'country':null,
+                'city':null,
+                'state':null,
+                'zipcode':null,
+                'phone':null,
+            }
+            if(shipping != 'False'){
+                shippingInfo.address = form.address.value
+                shippingInfo.country = form.country.value
+                shippingInfo.city = form.city.value
+                shippingInfo.state = form.state.value
+                shippingInfo.zipcode = form.zipcode.value
+                shippingInfo.phone = form.phone.value
+            }
+
+            if (user == 'AnonymousUser'){
+	    		userFormData.name = form.name.value
+	    		userFormData.email = form.email.value
+	    	}
+
+            console.log('Shipping Info:', shippingInfo)
+	    	console.log('User Info:', userFormData)
+
+            var url = "/process_order/"
+	    	fetch(url, {
+	    		method:'POST',
+	    		headers:{
+	    			'Content-Type':'applicaiton/json',
+	    			'X-CSRFToken':csrftoken,
+	    		}, 
+	    		body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo}),
+	    		
+	    	})
+	    	.then((response) => response.json())
+	    	.then((data) => {
+				console.log('Success:', data);
+				alert('Transaction completed'); 
+
+                cart = {}
+			    document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+				window.location.href = "{% url 'shop' %}"
+				})
+
+        }
+    
+</script>
+<!-- Checkout Section End -->
+{% endblock content %}

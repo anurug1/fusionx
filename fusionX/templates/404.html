@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+404 หาไม่พบ !!!
+{% endblock title %}
+{% block content %}
+
+<section class="about spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="about__pic">
+                    <img src="{% static "img/about/about-us.jpg" %}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>เราคือใคร ?</h4>
+                    <p>เป็นบริษัทจำหน่ายรองเท้าแบรนด์ชื่อดังต่างๆ ที่ได้รับอนุณาตจากแบรนด์และทำให้ลูกค้าทำการตัดสินใจได้ง่ายมาขึ้น.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>พวกเราทำอะไร ?</h4>
+                    <p>ขายสินค้า ที่ลูกค้ามีจุดประสงค์จะซื้อรองเท้าที่มีราคาจับต้องได้ สามารถเลือกใช้เข้ากับไลฟ์สไตล์ของคุณ และใช้สำหรับออกกำลังกาย.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>ทำไมต้องเลือกเรา ?</h4>
+                    <p>1.ราคาถูก
+                        2.จัดส่งรวดเร็ว
+                        3.มีคุณภาพ (ผ่านQCจากบริษัทชั้นนำ)
+                        4.มีรับประกัน
+                        5.มีการรับรองและปลอดภัยจากสินค้าปลอม</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

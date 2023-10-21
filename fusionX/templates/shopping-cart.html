@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block title %} {% endblock title %}
+{% load static %}
+{% block content %}
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>ตะกร้าสินค้า</h4>
+                    <div class="breadcrumb__links">
+                        <a href="{%url 'home'%}">หน้าแรก</a>
+                        <a href="{%url 'shop'%}">ช้อปปิ้ง</a>
+                        <span>ตะกร้าสินค้า</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- Shopping Cart Section Begin -->
+<section class="shopping-cart spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="shopping__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>สินค้า</th>
+                                <th>จำนวน</th>
+                                <th>รวม</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for item in items%}
+                            <tr>
+                                <td class="product__cart__item">
+                                    <div class="product__cart__item__pic">
+                                        <img src="{{item.product.imageURL}}" width="90" alt="">
+                                    </div>
+                                    <div class="product__cart__item__text">
+                                        <h6>{{item.product.name}}</h6>
+                                        <h5>{{item.product.price|floatformat:"2g"}} ฿</h5>
+                                    </div>
+                                </td>
+                                <td class="quantity__item">
+                                    <div class="quantity">
+                                        <div class="pro-qty-2">
+                                            <span data-product="{{item.product.id}}" data-action="remove" n class="fa fa-angle-left dec qtybtn update-cart"></span>
+                                            <input type="text" value="{{item.quantity}}">
+                                            <span data-product="{{item.product.id}}" data-action="add"  class="fa fa-angle-right inc qtybtn update-cart"></span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="cart__price">{{item.get_total|floatformat:"2g"}} ฿</td>
+                                <td class="cart__close"><i data-product="{{item.product.id}}" data-action="delete"  class="fa fa-close update-cart"></i></td>
+                            </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="continue__btn">
+                            <a href="{% url 'shop'%}">ช้อปปิ้งต่อ....</a>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cart__discount">
+                    <h6>โค้ดส่วนลด</h6>
+                    <form action="#">
+                        <input type="text" placeholder="รหัสคูปอง">
+                        <button type="submit">บันทึก</button>
+                    </form>
+                </div>
+                <div class="cart__total">
+                    <h6>ตะกร้า</h6>
+                    <ul>
+                        <li>รวมสินค้า <span> {{order.get_cart_total|floatformat:"2g"}} ฿</span></li>
+                        <li>ภาษีมูลค่าเพิ่ม 7% <span> *รวมในสินค้าแล้ว</span></li>
+                        <li>ราคาสุทธิ <span>{{order.get_cart_total|floatformat:"2g"}} ฿</span></li>
+                    </ul>
+                    <a href="checkout" class="primary-btn">Proceed to checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

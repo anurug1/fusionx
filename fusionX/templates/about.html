@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+เกี่ยวกับพวกเรา
+{% endblock title %}
+{% block content %}
+<section class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__text">
+                    <h4>เกี่ยวกับพวกเรา</h4>
+                    <div class="breadcrumb__links">
+                        <a href="{%url "home"%}">หน้าแรก</a>
+                        <span>เกี่ยวกับพวกเรา</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb Section End -->
+
+<!-- About Section Begin -->
+<section class="about spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="about__pic">
+                    <img src="{% static "img/about/about-us.jpg" %}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>เราคือใคร ?</h4>
+                    <p>เป็นบริษัทจำหน่ายรองเท้าแบรนด์ชื่อดังต่างๆ ที่ได้รับอนุณาตจากแบรนด์และทำให้ลูกค้าทำการตัดสินใจได้ง่ายมาขึ้น.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>พวกเราทำอะไร ?</h4>
+                    <p>ขายสินค้า ที่ลูกค้ามีจุดประสงค์จะซื้อรองเท้าที่มีราคาจับต้องได้ สามารถเลือกใช้เข้ากับไลฟ์สไตล์ของคุณ และใช้สำหรับออกกำลังกาย.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="about__item">
+                    <h4>ทำไมต้องเลือกเรา ?</h4>
+                    <p>1.ราคาถูก
+                        2.จัดส่งรวดเร็ว
+                        3.มีคุณภาพ (ผ่านQCจากบริษัทชั้นนำ)
+                        4.มีรับประกัน
+                        5.มีการรับรองและปลอดภัยจากสินค้าปลอม</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Section End -->
+
+<!-- Testimonial Section Begin -->
+
+
+<!-- Counter Section Begin -->
+<section class="counter spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="counter__item">
+                    <div class="counter__item__number">
+                        <h2 class="cn_num">102</h2>
+                    </div>
+                    <span>ประเทศลูกค้า <br />ของพวกเรา</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="counter__item">
+                    <div class="counter__item__number">
+                        <h2 class="cn_num">5</h2>
+                    </div>
+                    <span>แบรนด์ </span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="counter__item">
+                    <div class="counter__item__number">
+                        <h2 class="cn_num">102</h2>
+                    </div>
+                    <span>ประเทศ <br />ที่เป็นลูกค้าของเรา</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="counter__item">
+                    <div class="counter__item__number">
+                        <h2 class="cn_num">98</h2>
+                        <strong>%</strong>
+                    </div>
+                    <span>ความสุข <br />ของลูกค้า</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Counter Section End -->
+
+<!-- Team Section Begin -->
+<section class="team spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>ทีมของพวกเรา</span>
+                    <h2>พบกับทีมของพวกเรา</h2>
+                </div>
+            </div>
+        </div>
+        <style>
+            
+            </style>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team__item">
+                    <img src="{% static "img/about/team-1.jpg" %}" alt="">
+                    <h4>นายอนุรักษ์  อุปัชฌาย์</h4>
+                    <span>BIS3N1 รหัสนักศึกษา 64342110254-7</span>
+                    <div class="team__social">
+                        <a href="https://www.facebook.com/772love.pt2/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/namawa.s/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team__item">
+                    <img src="{% static "img/about/team-2.jpg" %}" alt="">
+                    <h4>กลวัชร จูหมื่นไวย์</h4>
+                    <span>BIS3N1 รหัสนักศึกษา 64342110157-8</span>
+                    <div class="team__social">
+                        <a href="https://www.facebook.com/faugkollawat" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/zxygangyu" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team__item">
+                    <img src="{% static "img/about/team-3.png" %}" alt="">
+                    <h4>นาย นพรัตน์ โชยะสิทธิ์ </h4>
+                    <span>BIS3N2 รหัสนักศึกษา 64342110490-7</span>
+                    <div class="team__social">
+                        <a href="https://www.facebook.com/profile.php?id=100014525562193" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/noba.rat/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team__item">
+                    <img src="{% static "img/about/team-4.png" %}" alt="">
+                    <h4>นายชาญยุทธ วิชนา</h4>
+                    <span>BIS3N2 รหัสนักศึกษา 64342110256-7</span>
+                    <div class="team__social">
+                        <a href="https://www.facebook.com/profile.php?id=100015762251917" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/dxxnquixotee__" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team Section End -->
+{% endblock content %}

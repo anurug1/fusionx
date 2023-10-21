@@ -1,0 +1,90 @@
+{% load static %}
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__option">
+        <div class="offcanvas__links">
+            {%if user.is_authenticated%}
+            <p>ยินดีต้อนรับคุณ, {{user.first_name}}</p>
+            {% comment %} <a href="{%url 'logout'%}">ออกจากระบบ</a> {% endcomment %}
+            {%else%}
+            {% comment %} <a href="{%url 'login'%}">เข้าสู่ระบบ</a> {% endcomment %}
+            {%endif%}
+        </div>
+    </div>
+    <div class="offcanvas__nav__option">
+        <a href="#"><img src="{% static "img/icon/cart.png" %}" width="25px" alt=""> <span>{{cartItems}}</span></a>
+        <div class="price">{{order.get_cart_total|floatformat:"2g"}} ฿</div>
+    </div>
+
+    
+    <div id="mobile-menu-wrap"></div>
+    <div class="offcanvas__text">
+        {%if user.is_authenticated%}
+        <p>ยินดีต้อนรับคุณ, {{user.first_name}}</p>
+        {%else%}
+        <p>Free shipping, 30-day return or refund guarantee.</p>
+        {%endif%}
+    </div>
+</div>
+
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7">
+                    {%if user.is_authenticated%}
+                    <div class="header__top__left">
+                        <p>ยินดีต้อนรับคุณ, {{user.first_name}}</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="header__top__right">
+                        <div class="header__top__links">
+                            {% comment %} <a href="{%url 'dashboard'%}">มุมสมาชิก, </a>
+                            <a href="{%url 'logout'%}">ออกจากระบบ</a> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+                {%else%}
+                <div class="header__top__left">
+                    <p>Free shipping, 30-day return or refund guarantee.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-5">
+                <div class="header__top__right">
+                    <div class="header__top__links">
+                        {% comment %} <a href="{%url 'login'%}">เข้าสู่ระบบ</a> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+            {%endif%}
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="{%url 'home'%}"><img src="{% static "img/logo.png" %}" width=150px alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+                    <ul>
+                        <li class="{%if navbar == "index"%}active{%endif%}"><a href="{%url 'home'%}">หน้าแรก</a></li>
+                        <li class="{%if navbar == "shop"%}active{%endif%}"><a href="{%url 'shop'%}">ช้อปปิ้ง</a></li>
+                        <li class="{%if navbar == "about"%}active{%endif%}"><a href="{%url 'about'%}">เกี่ยวกับพวกเรา</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    {% comment %} <a href="#" class="search-switch"><img src="{% static "img/icon/search.png" %}" alt=""></a> {% endcomment %}
+                    <a href="{%url 'cart'%}"><img src="{% static "img/icon/cart.png" %}" width="25px" alt=""> <span class="">{{cartItems}}</span></a>
+                    <div class="price">{{order.get_cart_total|floatformat:"2g"}} ฿</div>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>
